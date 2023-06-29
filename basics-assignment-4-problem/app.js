@@ -1,26 +1,27 @@
-Vue.createApp({
-    data: function () {
-        return {
-            userClass: '',
-            visible: true,
-        }
-    },
-    watch: {
-        visible: function () {
-            if (this.visible) {
-                this.userClass = 'visible'
-            }
-
-            this.userClass = 'hidden'
-        }
+const app = Vue.createApp({
+    data() {
+      return {
+        inputClass: '',
+        paragraphIsVisible: true,
+        inputBackgroundColor: ''
+      };
     },
     computed: {
-
+      paraClasses() {
+        return {
+          user1: this.inputClass === 'user1',
+          user2: this.inputClass === 'user2',
+          visible: this.paragraphIsVisible,
+          hidden: !this.paragraphIsVisible
+        };
+      },
     },
     methods: {
-        toggleVisiblity: function () {
-            this.visible = !this.visible;
-            console.log(this.visible);
-        }
-    }
-}).mount('#assignment');
+      toggleParagraphVisibility() {
+        this.paragraphIsVisible = !this.paragraphIsVisible;
+      },
+    },
+  });
+  
+  app.mount('#assignment');
+  
