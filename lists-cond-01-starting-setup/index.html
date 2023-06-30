@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goals">
+      <h2>My course goals</h2>
+      <input type="text" v-model="goalInput"/>
+      <button v-on:click="addGoal()">Add Goal</button>
+      <button v-on:click="resetGoals()" v-show="goals.length > 0">Reset Goals</button>
+      <p v-if="goals.length <= 0">No goals have been added yet - please start adding some!</p>
+      <ul v-else>
+        <!-- v-for array example add :key to keep the DOM elements apart and prevent known Vue.js bug. Use unique ID-->
+        <li class="pointer" v-for="(goal, index) in goals" :key="goal" v-on:click="removeGoal(index)">{{ index }} - {{ goal }}</li>
+      </ul>
+      <!-- v-for object example -->
+      <!-- <ul>
+        <li v-for="(value, key) in object">{{ key }}: {{ value }}</li>
+      </ul> -->
+    </section>
+  </body>
+</html>
