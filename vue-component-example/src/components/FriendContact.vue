@@ -40,6 +40,16 @@
             required: true,
         },
     },
+    emits: {
+        'toggle-favourite': function (id) {
+            if (!id) {
+                console.warn('Toggle Favourite ID is missing');
+                return false;
+            }
+
+            return true;
+        },
+    },  
     data() {
       return {
         detailsAreVisible: false,
