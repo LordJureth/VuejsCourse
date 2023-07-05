@@ -50,7 +50,7 @@
             return true;
         },
     },  
-    data() {
+    data: function () {
       return {
         detailsAreVisible: false,
       };

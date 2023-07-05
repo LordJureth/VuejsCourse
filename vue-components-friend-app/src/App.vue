@@ -3,6 +3,9 @@
       <header>
         <h1>My Friends</h1>
       </header>
+      <new-friend
+        v-on:add-new-friend="addNewFriend(name, phone, email, isFavourite)"
+      ></new-friend>
       <ul>
         <friend-contact 
             v-for="friend in friends"
@@ -12,8 +15,8 @@
             :email="friend.email" 
             :is-favourite="friend.isFavourite" 
             :key="friend.id"
-            v-on:toggle-favourite="toggleFavourite">
-        </friend-contact>
+            v-on:toggle-favourite="toggleFavourite()"
+        ></friend-contact>
       </ul>
     </section>
   </template>
@@ -46,6 +49,9 @@
                     friend => friend.id === id
                 );
                 identifiedFriend.isFavourite = !identifiedFriend.isFavourite;
+            },
+            addNewFriend: function (name, phone, email, isFavourite) {
+                console.log(name, phone, email, isFavourite);
             }
         }
     };
