@@ -1,18 +1,24 @@
 <template>
-    <form>
-        <label for="name">Name:</label>
-        <input v-model="name" id="name" name="name" type="text" autocomplete="name">
-        
-        <label for="phone">Phone:</label>
-        <input v-model="phone" id="phone" name="phone" type="text" autocomplete="phone">
-       
-        <label for="email">Email:</label>
-        <input v-model="email" id="email" name="email" type="email" autocomplete="email">
-       
-        <label for="checkbox">Favourite</label>
-        <input type="checkbox" id="checkbox" name="isFavourite" v-model="isFavourite" autocomplete="isFavourite" />
-        
-        <button v-on:click.prevent="addFriend()" type="submit">Add Friend</button>
+    <form v-on:submit.prevent="addFriend()">
+        <div>
+            <label for="name">Name:</label>
+            <input v-model="name" id="name" name="name" type="text" autocomplete="name">
+        </div>
+        <div>
+            <label for="phone">Phone:</label>
+            <input v-model="phone" id="phone" name="phone" type="tel" autocomplete="phone">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input v-model="email" id="email" name="email" type="email" autocomplete="email">
+        </div>
+        <div>
+            <label for="checkbox">Favourite:</label>
+            <input type="checkbox" id="checkbox" name="isFavourite" v-model="isFavourite" autocomplete="isFavourite" />
+        </div>
+        <div>
+            <button type="submit">Add Friend</button>
+        </div>
     </form>
 </template>
 

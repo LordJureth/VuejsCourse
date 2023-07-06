@@ -3,9 +3,7 @@
       <header>
         <h1>My Friends</h1>
       </header>
-      <new-friend
-        v-on:add-new-friend="addNewFriend(name, phone, email, isFavourite)"
-      ></new-friend>
+      <new-friend v-on:add-new-friend="addNewFriend"></new-friend>
       <ul>
         <friend-contact 
             v-for="friend in friends"
@@ -16,6 +14,7 @@
             :is-favourite="friend.isFavourite" 
             :key="friend.id"
             v-on:toggle-favourite="toggleFavourite()"
+            v-on:delete="deleteContact(id)"
         ></friend-contact>
       </ul>
     </section>
@@ -51,8 +50,18 @@
                 identifiedFriend.isFavourite = !identifiedFriend.isFavourite;
             },
             addNewFriend: function (name, phone, email, isFavourite) {
-                console.log(name, phone, email, isFavourite);
-            }
+                const newFriend = {
+                    id: Math.floor(Math.random() * 100),
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    isFavourite: isFavourite
+                };
+                this.friends.push(newFriend);
+            },
+            deleteContact(friendId) {
+                this.friends = this.friends.filter((friend) => friend.id !== friendId);
+            },
         }
     };
 </script>
@@ -88,7 +97,8 @@
         list-style: none;
     }
 
-    #app li {
+    #app li,
+    #app form {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
         margin: 1rem auto;
         border-radius: 10px;

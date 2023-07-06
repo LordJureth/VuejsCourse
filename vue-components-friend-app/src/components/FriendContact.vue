@@ -13,6 +13,7 @@
           {{ email }}
         </li>
       </ul>
+      <button @click="$emit('delete', id)">Delete</button>
     </li>
   </template>
   
@@ -49,6 +50,14 @@
 
             return true;
         },
+        'delete': function (id) {
+            if (!id) {
+                console.warn('Delete Contact ID is missing');
+                return false;
+            }
+
+            return true;
+        }
     },  
     data: function () {
       return {
