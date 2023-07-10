@@ -13,8 +13,8 @@
             :email="friend.email" 
             :is-favourite="friend.isFavourite" 
             :key="friend.id"
-            v-on:toggle-favourite="toggleFavourite()"
-            v-on:delete="deleteContact(id)"
+            v-on:toggle-favourite="toggleFavourite"
+            v-on:delete="deleteContact"
         ></friend-contact>
       </ul>
     </section>
@@ -60,6 +60,7 @@
                 this.friends.push(newFriend);
             },
             deleteContact(friendId) {
+                console.log(friendId);
                 this.friends = this.friends.filter((friend) => friend.id !== friendId);
             },
         }
