@@ -16,12 +16,7 @@
 import ResourceListItems from './ResourceItem.vue';
 
 export default {
-    props: {
-        resources: {
-            required: true,
-            type: Array
-        }
-    },
+    inject: ['resources'],
     components: {
         ResourceListItems
     },
