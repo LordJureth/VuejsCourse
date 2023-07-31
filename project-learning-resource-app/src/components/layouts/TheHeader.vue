@@ -1,7 +1,7 @@
 <template>
-    <header>
-        <h1>Learning Resource App</h1>
-    </header>
+  <header>
+    <h1>Learning Resource App</h1>
+  </header>
 </template>
 
 <script>
