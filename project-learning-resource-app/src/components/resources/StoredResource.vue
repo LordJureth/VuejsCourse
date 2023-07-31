@@ -7,7 +7,6 @@
          :title="resource.title"
          :description="resource.description"
          :link="resource.link"
-         @delete-resource="deleteResource"
         ></resource-list-items>
     </ul>
 </template>
@@ -20,11 +19,6 @@ export default {
     components: {
         ResourceListItems
     },
-    methods: {
-        deleteResource() {
-            alert('resource deleted!');
-        }
-    }
 };
 </script>
 

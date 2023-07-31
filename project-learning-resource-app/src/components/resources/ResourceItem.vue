@@ -5,7 +5,7 @@
                 <header>
                     <h3>{{ title }}</h3>
                     <base-button
-                     @click="deleteResource"
+                     @click="removeResource(id)"
                     :buttonText="Delete"
                     :type=submit
                     :mode=flat
@@ -42,11 +42,9 @@ export default {
             type: String
         },
     },
-    methods: {
-        deleteResource() {
-            this.$emit('delete-resource', this.id);
-        }
-    }
+    inject: [
+      'removeResource'
+    ]
 };
 </script>
 
